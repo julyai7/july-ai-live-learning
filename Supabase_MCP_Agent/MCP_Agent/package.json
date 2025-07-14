@@ -1,0 +1,20 @@
+{
+    "name": "mcp-task-manager",
+    "version": "1.0.0",
+    "description": "MCP Task Manager Server with SQLite",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "setup-db": "node setup-db.js"
+    },
+    "dependencies": {
+      "@supabase/supabase-js": "^2.38.0"
+    },
+    "devDependencies": {
+      "@types/node": "^20.0.0"
+    },
+    "keywords": ["mcp", "task-manager", "sqlite"],
+    "author": "Your Name",
+    "license": "MIT"
+  }
