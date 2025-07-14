@@ -43,7 +43,7 @@ ls -la
 
 ```
 july-ai-live-learning/
-├── projects/          # Complete project examples
+├── projects          # Complete project examples
 └── README.md         # This file
 ```
 
