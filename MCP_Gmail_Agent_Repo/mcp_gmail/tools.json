@@ -1,0 +1,155 @@
+{
+  "tools": [
+    {
+      "name": "search_emails",
+      "description": "Search for emails using various criteria like query, sender, date range",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query to find emails"
+          },
+          "sender": {
+            "type": "string",
+            "description": "Filter emails by sender email address"
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Filter emails after this date (YYYY/MM/DD format)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "Filter emails before this date (YYYY/MM/DD format)"
+          },
+          "maxResults": {
+            "type": "number",
+            "description": "Maximum number of results to return (default: 10)"
+          }
+        }
+      }
+    },
+    {
+      "name": "read_email",
+      "description": "Get the full content of a specific email including body and headers",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string",
+            "description": "The ID of the email message to read"
+          }
+        },
+        "required": ["messageId"]
+      }
+    },
+    {
+      "name": "send_email",
+      "description": "Compose and send a new email message",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "Recipient email address"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Email subject line"
+          },
+          "body": {
+            "type": "string",
+            "description": "Email body content"
+          },
+          "cc": {
+            "type": "string",
+            "description": "CC recipient email addresses (comma-separated)"
+          },
+          "bcc": {
+            "type": "string",
+            "description": "BCC recipient email addresses (comma-separated)"
+          }
+        },
+        "required": ["to", "subject", "body"]
+      }
+    },
+    {
+      "name": "get_thread",
+      "description": "Retrieve all messages in an email conversation thread",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "threadId": {
+            "type": "string",
+            "description": "The ID of the email thread to retrieve"
+          }
+        },
+        "required": ["threadId"]
+      }
+    },
+    {
+      "name": "mark_read",
+      "description": "Mark one or more emails as read by removing the UNREAD label",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of message IDs to mark as read"
+          }
+        },
+        "required": ["messageIds"]
+      }
+    },
+    {
+      "name": "mark_unread",
+      "description": "Mark one or more emails as unread by adding the UNREAD label",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of message IDs to mark as unread"
+          }
+        },
+        "required": ["messageIds"]
+      }
+    },
+    {
+      "name": "create_draft",
+      "description": "Create a draft email without sending it",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "Recipient email address"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Email subject line"
+          },
+          "body": {
+            "type": "string",
+            "description": "Email body content"
+          },
+          "cc": {
+            "type": "string",
+            "description": "CC recipient email addresses (comma-separated)"
+          },
+          "bcc": {
+            "type": "string",
+            "description": "BCC recipient email addresses (comma-separated)"
+          }
+        },
+        "required": ["to", "subject", "body"]
+      }
+    }
+  ]
+} 
